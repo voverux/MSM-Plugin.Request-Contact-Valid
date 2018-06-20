@@ -1,0 +1,78 @@
+﻿<script type="text/javascript" src="template.js"></script>
+<script>
+    (function () {
+        var MarvalSoftware = window.top.MarvalSoftware;
+        var $ = window.top.$;
+        MarvalSoftware.Plugins.define("marval-baltic-plugins-request-contact-valid",
+        {
+            init: function (){
+				MarvalSoftware.UI.Controls.ScriptManager.getInstance().getControl("ctl00_cph_contact_quickContact")._canCreate = false;
+				var cst = MarvalSoftware.UI.Controls.ScriptManager.getInstance().getControl("ctl00_cph_customer");
+				var cnt = MarvalSoftware.UI.Controls.ScriptManager.getInstance().getControl("ctl00_cph_contact");
+				
+				$(cst._nameInput).bind(
+					"change", 
+					function(e){
+						if(isNaN(cst.getValue().Identifier) || cst.getValue().Identifier===0) cst.setValue(0);
+						if(isNaN(cnt.getValue().Identifier) || cnt.getValue().Identifier===0) cnt.setValue(0);
+					} 
+				);
+				$(cst._nameInput).bind(
+					"keydown", 
+					function(e){
+						if(e.keyCode==13){ 
+							(function _waitForResults(count){
+							   setTimeout(function (){
+									var elm_results=$(".contactList.content").parent(":visible");
+									if (elm_results.length>0){
+										if($(elm_results).find(".noResults").length>0){
+											if(isNaN(cst.getValue().Identifier) || cst.getValue().Identifier===0) cst.setValue(0);
+											if(isNaN(cnt.getValue().Identifier) || cnt.getValue().Identifier===0) cnt.setValue(0);
+										}
+									}
+									else 
+										if (--count) _waitForResults(count);
+										else {
+											if(isNaN(cst.getValue().Identifier) || cst.getValue().Identifier===0) cst.setValue(0);
+											if(isNaN(cnt.getValue().Identifier) || cnt.getValue().Identifier===0) cnt.setValue(0);
+										}
+							   }, 500)				
+							})(100);
+						}
+					}
+				);
+				$(cnt._nameInput).bind(
+					"change", 
+					function(e){
+						if(isNaN(cst.getValue().Identifier) || cst.getValue().Identifier===0) cst.setValue(0);
+						if(isNaN(cnt.getValue().Identifier) || cnt.getValue().Identifier===0) cnt.setValue(0);
+					} 
+				);
+				$(cnt._nameInput).bind(
+					"keydown", 
+					function(e){
+						if(e.keyCode==13){ 
+							(function _waitForResults(count){
+							   setTimeout(function (){
+									var elm_results=$(".contactList.content").parent(":visible");
+									if (elm_results.length>0){
+										if($(elm_results).find(".noResults").length>0){
+											if(isNaN(cst.getValue().Identifier) || cst.getValue().Identifier===0) cst.setValue(0);
+											if(isNaN(cnt.getValue().Identifier) || cnt.getValue().Identifier===0) cnt.setValue(0);
+										}
+									}
+									else 
+										if (--count) _waitForResults(count);
+										else {
+											if(isNaN(cst.getValue().Identifier) || cst.getValue().Identifier===0) cst.setValue(0);
+											if(isNaN(cnt.getValue().Identifier) || cnt.getValue().Identifier===0) cnt.setValue(0);
+										}
+							   }, 500)				
+							})(100);
+						}
+					}
+				);
+			}
+        });
+    })();
+</script>
