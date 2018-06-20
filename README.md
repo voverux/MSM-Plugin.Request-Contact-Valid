@@ -1,7 +1,7 @@
 
 # MSM Plugin :: Request Contact Valid
 
-Enforcing Request Contact Mandatory to be Recognizable (from existing OU list only).
+Enforcing Request Contact Selection from the existing OU list only.
 
 ## Compatible Versions
 
@@ -15,10 +15,11 @@ Please see your MSM documentation for information on how to install plugins.
 
 ## Usage
 
-Enforcement automatically applied on every Request form load.
+Enforcement automatically applied in every Request.
 
 ## Limitations
 
 
 ## Contributing
 
+ Any feedback is very welcome.
